@@ -18,9 +18,11 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data['books'] = $this->BookService->list();
+        $data['request'] = $request;
+        return view('backend.book.book', $data);
     }
 
     /**
@@ -28,7 +30,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $data['page_type'] = 'Create';
+        return view('backend.book.book_create_or_update', $data);
     }
 
     /**
@@ -36,7 +39,31 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->validator($request);
+        try {
+            $this->BookService->create($data);
+            return redirect()->route('book.index')->withSuccess('Book created successfully.');
+        }catch (\Exception $exception){
+            return redirect()->back()->withInput()->withErrors(['error' => $exception->getMessage()]);
+        }
+
+    }
+
+
+    public function validator($request)
+    {
+        return $request->validate([
+            'name'        => 'required|string|max:255',
+            'price'       => 'nullable|numeric',
+            'discount'    => 'nullable|numeric',
+            'image'       => 'nullable|image',
+            'description' => 'nullable|string',
+            'document'    => 'nullable|mimes:pdf',
+            'promo_video' => 'nullable|string|max:255',
+            'type'        => 'nullable|string|max:255',
+            'order'       => 'nullable|integer',
+            'status'      => 'nullable|string|max:255',
+        ]);
     }
 
     /**
