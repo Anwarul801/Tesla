@@ -46,7 +46,7 @@ class PermissionSeeder extends Seeder
             array('name' => 'permissions.update','guard_name' => 'web'),
             array('name' => 'permissions.destroy','guard_name' => 'web'),
 
-            
+
             array('name' => 'setting.index','guard_name' => 'web'),
             array('name' => 'setting.edit','guard_name' => 'web'),
             array('name' => 'setting.create','guard_name' => 'web'),
@@ -69,6 +69,14 @@ class PermissionSeeder extends Seeder
             array('name' => 'thana.store','guard_name' => 'web'),
             array('name' => 'thana.update','guard_name' => 'web'),
             array('name' => 'thana.destroy','guard_name' => 'web'),
+
+            array('name' => 'course.index','guard_name' => 'web'),
+            array('name' => 'course.edit','guard_name' => 'web'),
+            array('name' => 'course.create','guard_name' => 'web'),
+            array('name' => 'course.show','guard_name' => 'web'),
+            array('name' => 'course.store','guard_name' => 'web'),
+            array('name' => 'course.update','guard_name' => 'web'),
+            array('name' => 'course.destroy','guard_name' => 'web'),
 
         );
 
