@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Facade;
 return [
 
     /*
@@ -117,6 +118,11 @@ return [
     | Supported drivers: "file", "cache"
     |
     */
+
+     'providers' => ServiceProvider::defaultProviders()->merge([
+        App\Providers\AppServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class
+    ])->toArray(),
 
     'maintenance' => [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
