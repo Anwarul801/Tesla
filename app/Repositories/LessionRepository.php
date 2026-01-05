@@ -1,29 +1,22 @@
 <?php
-/**
- * @Author: Anwarul
- * @Date: 2026-01-05 15:00:04
- * @LastEditors: Anwarul
- * @LastEditTime: 2026-01-05 17:11:15
- * @Description: Innova IT
- */
 
 namespace App\Repositories;
 
-use App\Models\Course;
+use App\Models\Lession;
 
-class CourseRepository
+class LessionRepository
 {
     protected $model;
 
-    public function __construct(Course $model)
+    public function __construct(Lession $model)
     {
         $this->model = $model;
     }
 
-     // CRUD Functions
-    public function all($request)
+    // CRUD Functions
+    public function all()
     {
-        return $this->model->paginate(10);
+        return $this->model->all();
     }
 
     public function find($id)

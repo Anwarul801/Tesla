@@ -1,29 +1,22 @@
 <?php
-/**
- * @Author: Anwarul
- * @Date: 2026-01-05 15:00:04
- * @LastEditors: Anwarul
- * @LastEditTime: 2026-01-05 17:10:13
- * @Description: Innova IT
- */
 
 namespace App\Services;
 
-use App\Repositories\CourseRepository;
+use App\Repositories\LessionRepository;
 
-class CourseService
+class LessionService
 {
     protected $repository;
 
-    public function __construct(CourseRepository $repository)
+    public function __construct(LessionRepository $repository)
     {
         $this->repository = $repository;
     }
 
-     // Service wrapper functions
-    public function getAll($request)
+    // Service wrapper functions
+    public function getAll()
     {
-        return $this->repository->all($request);
+        return $this->repository->all();
     }
 
     public function getById($id)
