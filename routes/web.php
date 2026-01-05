@@ -7,6 +7,7 @@
  * @Description: Innova IT
  */
 
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -33,6 +34,7 @@ Route::group(['middleware' => ['auth','permission']], function() {
     Route::resource('district', DistrictController::class);
     Route::resource('thana', ThanaController::class);
     Route::resource('setting', SettingController::class);
+    Route::resource('book', BookController::class);
 
 });
 });

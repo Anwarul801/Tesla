@@ -150,5 +150,21 @@
             </script>
         @endif
         @stack('scripts')
+
+      <script>
+          document.addEventListener('input', function (e) {
+              if (e.target.classList.contains('number')) {
+                  let value = e.target.value;
+                  value = value.replace(/[^0-9.]/g, '');
+                  const parts = value.split('.');
+                  if (parts.length > 2) {
+                      value = parts[0] + '.' + parts.slice(1).join('');
+                  }
+
+                  e.target.value = value;
+              }
+          });
+      </script>
+
 </body>
 </html>
