@@ -3,16 +3,18 @@
  * @Author: Anwarul
  * @Date: 2025-11-17 14:53:56
  * @LastEditors: Anwarul
- * @LastEditTime: 2026-01-05 17:14:13
+ * @LastEditTime: 2026-01-05 17:22:19
  * @Description: Innova IT
  */
 
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PermissionsController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -34,6 +36,7 @@ Route::group(['middleware' => ['auth','permission']], function() {
     Route::resource('thana', ThanaController::class);
     Route::resource('setting', SettingController::class);
     Route::resource('course', CourseController::class);
+    Route::resource('book', BookController::class);
 
 });
 });
