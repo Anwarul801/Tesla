@@ -93,6 +93,13 @@ class PermissionSeeder extends Seeder
             array('name' => 'book.update','guard_name' => 'web'),
             array('name' => 'book.destroy','guard_name' => 'web'),
 
+            array('name' => 'book_file.index','guard_name' => 'web'),
+            array('name' => 'book_file.create','guard_name' => 'web'),
+            array('name' => 'book_file.store','guard_name' => 'web'),
+            array('name' => 'book_file.show','guard_name' => 'web'),
+            array('name' => 'book_file.edit','guard_name' => 'web'),
+            array('name' => 'book_file.update','guard_name' => 'web'),
+            array('name' => 'book_file.destroy','guard_name' => 'web'),
             array('name' => 'module.store','guard_name' => 'web'),
             array('name' => 'module.update','guard_name' => 'web'),
             array('name' => 'module.destroy','guard_name' => 'web'),
