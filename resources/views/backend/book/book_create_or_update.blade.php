@@ -27,14 +27,29 @@
         </div>
 
         <div class="card-body form-body">
+            <form action="{{$page_type=='Create'?route('book.store'): route('book.update', $book->id)}}" method="post" enctype="multipart/form-data">
+                @csrf
+                @if($page_type=='Edit')
+                    @method('PUT')
+                @endif
+
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="mb-3">
-                                <label class="form-label">{{ __('Name') }} <span class="text-danger">*</span></label>
+                                <label class="form-label">{{ __('Book Name') }} <span class="text-danger">*</span></label>
                                 <input type="text" name="name" class="form-control" value="{{ old('name', $book->name ?? '') }}" placeholder="Enter Book Name">
                                 @error('name')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">{{ __('Author') }} </label>
+                                <input type="text" name="author" class="form-control" value="{{ old('author', $book->author ?? '') }}" placeholder="Enter Author Name">
+                                @error('author')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -51,7 +66,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label">{{ __('Discount Price') }}</label>
-                                <input type="text" name="discount" class="form-control number" value="{{ old('discount', $book->duscount ?? '') }}" placeholder="Enter Discount Price">
+                                <input type="text" name="discount" class="form-control number" value="{{ old('discount', $book->discount ?? '') }}" placeholder="Enter Discount Price">
                                 @error('discount')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -60,11 +75,21 @@
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="form-label ">{{ __('Image') }}</label>
-                                <input type="file" name="image" class="form-control">
+                                <label class="form-label">{{ __('Image') }}</label>
+                                <input type="file" name="image" accept="image/*" class="form-control">
+
                                 @error('image')
-                                    <span class="text-danger">{{ $message }}</span>
+                                <span class="text-danger">{{ $message }}</span>
                                 @enderror
+                                @if($page_type == 'Edit' && !empty($book->image))
+                                    <div class="mt-2 d-flex gap-3">
+                                        <a target="_blank"
+                                           href="{{ asset($book->image) }}"
+                                           class="btn btn-sm btn-outline-dark ms-2">
+                                            <i class="fa fa-eye"></i> View Current Image
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
 
@@ -85,6 +110,15 @@
                                 @error('document')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
+                                @if($page_type == 'Edit' && !empty($book->document))
+                                    <div class="mt-2 d-flex gap-3">
+                                        <a target="_blank"
+                                           href="{{ asset($book->document) }}"
+                                           class="btn btn-sm btn-outline-dark ms-2">
+                                            <i class="fa fa-eye"></i> View Current Document
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                         @if($page_type=='Edit')
@@ -115,10 +149,18 @@
                             <div class="mb-3">
                                 <label class="form-label">{{ __('Description') }}</label>
                                 <textarea name="description" id="elm1" class="form-control" rows="4" placeholder="Enter Book Description">{{ old('description', $book->description ?? '') }}</textarea>
+                                @error('description')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                 </div>
             </div>
         </div>
+      </form>
     </div>
 
 

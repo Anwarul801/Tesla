@@ -34,17 +34,12 @@
                     <input type="text" value="{{ $request->name }}" name="name" class="form-control"
                            placeholder="Search By Name" form="search_form">
                 </div>
-                <div class="col-md-3 mb-2">
-                    <label>{{ __('Bangla Name') }}</label>
-                    <input type="text" value="{{ $request->bn_name }}" name="bn_name" class="form-control"
-                           placeholder="Search By Bangla Name" form="search_form">
-                </div>
                 <div class="col-md-2 mb-2">
                     <label>{{ __('Status') }}</label>
                     <select form="search_form" name="status" class="form-control">
                         <option value="" disabled selected>Search By Status</option>
-                        <option value="1" {{ $request->status == '1' ? 'selected' : '' }}>Active</option>
-                        <option value="0" {{ $request->status == '0' ? 'selected' : '' }}>In-Active</option>
+                        <option value="Active" {{ $request->status == 'Active' ? 'selected' : '' }}>Active</option>
+                        <option value="In-Active" {{ $request->status == 'In-Active' ? 'selected' : '' }}>In-Active</option>
                     </select>
                 </div>
                 <div class="col-md-2 mb-2">
@@ -56,41 +51,73 @@
                     <a href="{{ route('book.index') }}" class="btn btn-outline-danger">Reset</a>
                 </div>
             </div>
-
-            <table class="table table-bordered text-center" style="width: 100%;">
-                <thead >
+            <table class="table table-bordered table-striped text-center" style="width:100%">
+                <thead>
                 <tr class="main_title">
                     <th>#</th>
-                    <th>{{ __('Country') }}</th>
                     <th>{{ __('Name') }}</th>
-                    <th>{{ __('Bangla Name') }}</th>
+                    <th>{{ __('Price') }}</th>
+                    <th>{{ __('Discount') }}</th>
+                    <th>{{ __('Status') }}</th>
+                    <th>{{ __('Image') }}</th>
                     <th class="text-center">{{ __('Action') }}</th>
                 </tr>
                 </thead>
+
                 <tbody>
                 @forelse($books as $book)
                     <tr>
-                        <td>{{ ($books->currentpage() - 1) * $books->perpage() + $loop->iteration }}</td>
-                        <td>{{ $book->country->name ?? 'N/A' }}</td>
-                        <td>{{ $book->name }}</td>
-                        <td>{{ $book->bn_name }}</td>
+                        <td>
+                            {{ ($books->currentPage() - 1) * $books->perPage() + $loop->iteration }}
+                        </td>
+                        <td>{{ $book->name ?? 'N/A' }}</td>
+                        <td>{{ $book->price ?? '-' }}</td>
+                        <td>{{ $book->discount ?? '-' }}</td>
+                        <td>
+                    <span class="badge bg-{{ $book->status === 'Active' ? 'success' : 'danger' }}">
+                        {{ $book->status }}
+                    </span>
+                        </td>
+                        <td>
+                            @if($book->image)
+                                <a target="_blank" href="{{asset($book->image)}}" class="btn btn-sm btn-outline-dark"> <i class="fa fa-image"></i></a>
+                            @else
+                                N/A
+                            @endif
+                        </td>
 
+                        {{-- Action --}}
                         <td class="text-center">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown">Action</button>
+                                <button class="btn btn-sm btn-secondary dropdown-toggle"
+                                        type="button"
+                                        data-bs-toggle="dropdown">
+                                    Action
+                                </button>
+
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" data-bs-toggle="modal"
-                                       data-bs-target="#editModal{{ $book->id }}">Edit</a>
-                                    <form action="{{ route('book.destroy', $book->id) }}" method="POST">
-                                        @method('DELETE')
+                                    <a class="dropdown-item"
+                                       href="{{ route('book.show', $book->id) }}">
+                                      <i class="fa fa-eye"></i>  View Details
+                                    </a>
+                                    <a class="dropdown-item"
+                                       href="{{ route('book.edit', $book->id) }}">
+                                       <i class="fa fa-edit"></i> Edit
+                                    </a>
+
+                                    <form action="{{ route('book.destroy', $book->id) }}"
+                                          method="POST">
                                         @csrf
-                                        <button type="submit" class="dropdown-item text-danger"
-                                                onclick="return confirm('Are you sure to Delete?')">Delete</button>
+                                        @method('DELETE')
+
+                                        <button type="submit"
+                                                class="dropdown-item text-danger"
+                                                onclick="return confirm('Are you sure to delete?')">
+                                           <i class="fa fa-trash"></i> Delete
+                                        </button>
                                     </form>
                                 </div>
                             </div>
-
                         </td>
                     </tr>
                 @empty
@@ -100,6 +127,7 @@
                 @endforelse
                 </tbody>
             </table>
+
             {{ $books->appends(request()->input())->links() }}
         </div>
     </div>
