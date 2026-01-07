@@ -1,4 +1,11 @@
 <?php
+/**
+ * @Author: Anwarul
+ * @Date: 2026-01-05 17:21:38
+ * @LastEditors: Anwarul
+ * @LastEditTime: 2026-01-07 15:33:08
+ * @Description: Innova IT
+ */
 
 namespace Database\Seeders;
 
@@ -93,6 +100,14 @@ class PermissionSeeder extends Seeder
             array('name' => 'book_file.edit','guard_name' => 'web'),
             array('name' => 'book_file.update','guard_name' => 'web'),
             array('name' => 'book_file.destroy','guard_name' => 'web'),
+            array('name' => 'module.store','guard_name' => 'web'),
+            array('name' => 'module.update','guard_name' => 'web'),
+            array('name' => 'module.destroy','guard_name' => 'web'),
+
+            array('name' => 'lessions.index','guard_name' => 'web'),
+            array('name' => 'lessions.store','guard_name' => 'web'),
+            array('name' => 'lessions.update','guard_name' => 'web'),
+            array('name' => 'lessions.destroy','guard_name' => 'web'),
 
         );
 

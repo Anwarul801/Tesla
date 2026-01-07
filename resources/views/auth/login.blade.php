@@ -3,7 +3,7 @@
  @Author: Anwarul
  @Date: 2025-11-17 15:04:07
  @LastEditors: Anwarul
- @LastEditTime: 2025-11-17 16:25:24
+ @LastEditTime: 2026-01-07 12:34:21
  @Description: Innova IT
  --}}
 <html lang="en">
@@ -30,7 +30,9 @@
 </head>
 <body id="top">
 <div class="page_loader"></div>
-
+@php
+use Illuminate\Support\Facades\Route;
+@endphp
 
     <div class="login-32">
         <div class="login-32-inner">
