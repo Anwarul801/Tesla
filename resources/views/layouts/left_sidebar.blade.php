@@ -3,7 +3,7 @@
  @Author: Anwarul
  @Date: 2025-11-17 17:12:23
  @LastEditors: Anwarul
- @LastEditTime: 2025-11-18 11:54:03
+ @LastEditTime: 2026-01-07 12:36:12
  @Description: Innova IT
  --}}
      <div data-simplebar class="h-100">
@@ -42,6 +42,12 @@
                              </ul>
                          </li>
                      @endcanany
+                     @can('course.index')
+                         <li>
+                             <a href="{{ route('course.index') }}">
+                                 <i class="fas fa-list"></i> Course List</a>
+                         </li>
+                     @endcan
                      @can('division.index')
                          <li>
                              <a href="{{ route('division.index') }}">
