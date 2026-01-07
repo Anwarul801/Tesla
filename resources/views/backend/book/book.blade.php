@@ -101,6 +101,10 @@
                                       <i class="fa fa-eye"></i>  View Details
                                     </a>
                                     <a class="dropdown-item"
+                                       href="{{ route('book_file.index', ['book_id' => $book->id]) }}">
+                                      <i class="fa fa-file"></i>  Files
+                                    </a>
+                                    <a class="dropdown-item"
                                        href="{{ route('book.edit', $book->id) }}">
                                        <i class="fa fa-edit"></i> Edit
                                     </a>

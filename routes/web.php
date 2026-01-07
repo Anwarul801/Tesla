@@ -8,6 +8,7 @@
  */
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BookFileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -37,6 +38,7 @@ Route::group(['middleware' => ['auth','permission']], function() {
     Route::resource('setting', SettingController::class);
     Route::resource('course', CourseController::class);
     Route::resource('book', BookController::class);
+    Route::resource('book_file', BookFileController::class);
 
 });
 });
