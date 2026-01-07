@@ -3,7 +3,7 @@
  * @Author: Anwarul
  * @Date: 2025-11-17 14:53:56
  * @LastEditors: Anwarul
- * @LastEditTime: 2026-01-05 17:22:19
+ * @LastEditTime: 2026-01-07 14:28:44
  * @Description: Innova IT
  */
 
@@ -37,6 +37,9 @@ Route::group(['middleware' => ['auth','permission']], function() {
     Route::resource('setting', SettingController::class);
     Route::resource('course', CourseController::class);
     Route::resource('book', BookController::class);
+    Route::resource('module', ModuleController::class);
+    Route::resource('lessions', LessionController::class);
+    Route::resource('question', SettingController::class);
 
 });
 });

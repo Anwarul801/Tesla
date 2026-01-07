@@ -4,7 +4,7 @@
  @Author: Anwarul
  @Date: 2025-11-17 15:04:07
  @LastEditors: Anwarul
- @LastEditTime: 2025-11-17 18:36:57
+ @LastEditTime: 2026-01-07 14:38:41
  @Description: Innova IT
  --}}
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -35,6 +35,7 @@
         <link href="{{ asset('backend')}}/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{ asset('backend')}}/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('backend')}}/css/mystyle.css" id="app-style" rel="stylesheet" type="text/css" />
             @yield('css')
 
 </head>
@@ -104,6 +105,8 @@
 
         <script src="{{ asset('backend')}}/js/pages/dashboard.init.js"></script>
 
+        <script src="{{ asset('backend') }}/libs/tinymce/tinymce.min.js"></script>
+        <script src="{{ asset('backend') }}/js/pages/form-editor.init.js"></script>
         <!-- App js -->
         <script src="{{ asset('backend')}}/js/app.js"></script>
 

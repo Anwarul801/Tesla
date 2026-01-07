@@ -3,7 +3,7 @@
  * @Author: Anwarul
  * @Date: 2026-01-05 15:00:04
  * @LastEditors: Anwarul
- * @LastEditTime: 2026-01-05 15:29:30
+ * @LastEditTime: 2026-01-07 12:56:27
  * @Description: Innova IT
  */
 
@@ -21,6 +21,7 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id(); // id as primary key
             $table->string('name');
+            $table->string('slug')->nullable();
             $table->integer('book_id')->nullable()->index(); // indexed, no FK
             $table->string('thumbnail')->nullable();
             $table->string('banner')->nullable();
