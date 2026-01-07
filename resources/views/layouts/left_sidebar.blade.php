@@ -70,6 +70,15 @@
                          </li>
                      @endcan
 
+                     @can(['book.index'])
+                         <li>
+                             <a href="{{ route('book.index') }}" class=" waves-effect">
+                                 <i class="ri-settings-2-line"></i>
+                                 <span>Books</span>
+                             </a>
+                         </li>
+                     @endcan
+
                  </ul>
              </div>
              <!-- Sidebar -->

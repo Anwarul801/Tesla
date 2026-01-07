@@ -32,7 +32,7 @@ trait ImageCustomizeTrait{
 
     public static function uploadImage($image, $path, $width = null, $height = null)
     {
-        $image_name = $image->store("$path");
+        $image_name = $image->store("$path", 'public');
         $image_public_path = public_path('storage/' . $image_name);
         if ($width != null && $height != null){
             Image::make($image_public_path)->resize($width, $height)->save();

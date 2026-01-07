@@ -20,7 +20,8 @@ class BookController extends Controller
      */
     public function index(Request $request)
     {
-        $data['books'] = $this->BookService->list();
+        $filters = $request->only(['name', 'status']);
+        $data['books'] = $this->BookService->list($filters);
         $data['request'] = $request;
         return view('backend.book.book', $data);
     }
@@ -54,6 +55,7 @@ class BookController extends Controller
     {
         return $request->validate([
             'name'        => 'required|string|max:255',
+            'author'        => 'nullable|string|max:255',
             'price'       => 'nullable|numeric',
             'discount'    => 'nullable|numeric',
             'image'       => 'nullable|image',
@@ -71,7 +73,8 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        $data['book'] = $book;
+        return view('backend.book.book_details', $data);
     }
 
     /**
@@ -79,22 +82,35 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        $data['book'] = $book;
+        $data['page_type'] = 'Edit';
+        return view('backend.book.book_create_or_update', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $this->validator($request);
+        try {
+            $this->BookService->update($id, $data);
+            return redirect()->route('book.index')->withSuccess('Book Updated successfully.');
+        }catch (\Exception $exception){
+            return redirect()->back()->withInput()->withErrors(['error' => $exception->getMessage()]);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Book $book)
+    public function destroy($id)
     {
-        //
+        try {
+            $this->BookService->delete($id);
+            return redirect()->route('book.index')->withSuccess('Book deleted successfully.');
+        }catch (\Exception $exception){
+            return redirect()->back()->withErrors(['error' => $exception->getMessage()]);
+        }
     }
 }

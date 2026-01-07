@@ -72,9 +72,9 @@
                                                 Remember me
                                             </label>
                                         </div>
-                                        @if (Route::has('password.request'))
-                                        <a href="{{ route('password.request') }}">Forgot Password</a>
-                                        @endif
+{{--                                        @if (Route::has('password.request'))--}}
+{{--                                        <a href="{{ route('password.request') }}">Forgot Password</a>--}}
+{{--                                        @endif--}}
                                     </div>
                                     <div class="form-group mb-0">
                                         <button type="submit" class="btn-md btn-theme w-100">Login</button>
