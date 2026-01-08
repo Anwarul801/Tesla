@@ -3,7 +3,7 @@
  @Author: Anwarul
  @Date: 2025-11-17 17:12:23
  @LastEditors: Anwarul
- @LastEditTime: 2026-01-07 12:36:12
+ @LastEditTime: 2026-01-08 15:10:13
  @Description: Innova IT
  --}}
      <div data-simplebar class="h-100">
@@ -46,6 +46,12 @@
                          <li>
                              <a href="{{ route('course.index') }}">
                                  <i class="fas fa-list"></i> Course List</a>
+                         </li>
+                     @endcan
+                     @can('quiz_question.index')
+                         <li>
+                             <a href="{{ route('quiz_question.index') }}">
+                                 <i class="fas fa-list"></i> Quiz Question List</a>
                          </li>
                      @endcan
                      @can('division.index')

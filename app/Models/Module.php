@@ -3,7 +3,7 @@
  * @Author: Anwarul
  * @Date: 2026-01-05 15:04:22
  * @LastEditors: Anwarul
- * @LastEditTime: 2026-01-07 14:45:10
+ * @LastEditTime: 2026-01-08 14:14:09
  * @Description: Innova IT
  */
 
@@ -28,11 +28,11 @@ class Module extends Model
     }
       public function videos()
     {
-        return $this->hasMany(Lession::class);
+        return $this->hasMany(Lesson::class);
     }
-      public function lessions()
+      public function lessons()
     {
-        return $this->hasMany(Lession::class);
+        return $this->hasMany(Lesson::class);
     }
 
 }

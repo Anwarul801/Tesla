@@ -3,7 +3,7 @@
  * @Author: Anwarul
  * @Date: 2026-01-05 16:47:39
  * @LastEditors: Anwarul
- * @LastEditTime: 2026-01-07 15:29:38
+ * @LastEditTime: 2026-01-08 14:25:54
  * @Description: Innova IT
  */
 
@@ -18,14 +18,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lessions', function (Blueprint $table) {
+        Schema::create('lessons', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->integer('course_id')->index();
             $table->integer('module_id')->nullable()->index();
             $table->enum('type', ['video', 'docs', 'quiz','text']);
             $table->string('link')->nullable();
-            $table->enum('video_type', ['Youtube', 'Vimio'])->nullable();
+            $table->enum('video_type', ['Youtube', 'Vimio','Vdocipher'])->nullable();
             $table->string('document')->nullable();
             $table->longText('description')->nullable();
             $table->integer('order')->default(0)->index();
@@ -42,6 +42,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lessions');
+        Schema::dropIfExists('lessons');
     }
 };
