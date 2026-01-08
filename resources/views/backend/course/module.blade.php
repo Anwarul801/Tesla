@@ -60,8 +60,8 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-6">
-                                <h5 class="card-title">{{ $module->title }} ({{ count($module->lessions) }}
-                                    {{ count($module->lessions) > 1 ? 'Content' : 'Content' }})</h5>
+                                <h5 class="card-title">{{ $module->title }} ({{ count($module->lessons) }}
+                                    {{ count($module->lessons) > 1 ? 'Content' : 'Content' }})</h5>
                             </div>
                             <div class="col-md-6 text-end">
                                 <a href="javascript:void(0)" data-bs-toggle="dropdown" id="btnGroupDrop{{ $module->id }}"
@@ -145,7 +145,7 @@
 
                     <div class="card-body">
                         <table class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                            @forelse($module->lessions as $single_video)
+                            @forelse($module->lessons as $single_video)
                                 <tr>
                                     <td class="text-center">{{ $single_video->title }}</td>
                                           <td class="text-center">Preview: {{ $single_video->is_free==1?'Yes Free':'No' }} </td>
@@ -158,17 +158,16 @@
                                         <td class="text-center">Source: {{ 'Document' }} <a href="{{ $single_video->document }}"
                                                 target="_blank">DOCS</a> </td>
                                     @elseif($single_video->type == 'quiz' || $single_video->type == 4)
-                                        <td class="text-center"> @php
-                                            $question = App\Question::where('video_id', $single_video->id)->count();
+                                        <td class="text-center"> Source: {{ 'Quiz' }} - @php
+                                            $question = App\Models\QuizQuestion::where('lesson_id', $single_video->id)->count();
                                         @endphp <span>
                                                 Question({{ $question ?? '0' }})</span>
-                                            <a href="{{ route('questions.create') }}?video_id={{ $single_video->id }} "
+                                            <a href="{{ route('quiz_question.create') }}?lesson_id={{ $single_video->id }} "
                                                 class="btn btn-primary">Add</a>
                                             <a target="_blank"
-                                                href="{{ route('model_test_show', ['id' => $single_video->id]) }}"
+                                                {{-- href="{{ route('model_test_show', ['id' => $single_video->id]) }}" --}}
                                                 class="btn btn-info">View </a>
                                         </td>
-                                        <td class="text-center">Source: {{ 'Quiz' }}</td>
                                     @else
 
                                         <td class="text-center">Source: {{ 'Text' }}</td>
@@ -183,7 +182,7 @@
                                             data-lesson='@json($single_video)'>Update</button>
 
                                         <form style="display: inline-block"
-                                            action="{{ route('lessions.destroy', $single_video->id) }}" method="post">
+                                            action="{{ route('lessons.destroy', $single_video->id) }}" method="post">
                                             @method('DELETE')
                                             @csrf
                                             <input type="submit" value="Delete" class="btn btn-danger"
@@ -193,7 +192,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td class="text-center">No lessions found in this module</td>
+                                    <td class="text-center">No lessons found in this module</td>
                                 </tr>
                             @endforelse
                         </table>
@@ -217,7 +216,7 @@
                 </div>
 
                 <!-- The form uses JS to switch between create and update -->
-                <form id="lessonForm" action="{{ route('lessions.store') }}" method="post" enctype="multipart/form-data">
+                <form id="lessonForm" action="{{ route('lessons.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <!-- For update we'll insert @method('PUT') dynamically -->
                     <input type="hidden" name="module_id" id="lesson_module_id" value="">
@@ -296,8 +295,8 @@
         <script>
             (function () {
                 // URL template for update - replace :id in JS
-                var updateUrlTemplate = "{{ route('lessions.update', ':id') }}";
-                var createUrl = "{{ route('lessions.store') }}";
+                var updateUrlTemplate = "{{ route('lessons.update', ':id') }}";
+                var createUrl = "{{ route('lessons.store') }}";
 
                 var lessonModal = document.getElementById('lessonModal');
                 lessonModal.addEventListener('show.bs.modal', function (event) {

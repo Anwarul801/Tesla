@@ -3,7 +3,7 @@
  * @Author: Anwarul
  * @Date: 2025-11-17 14:53:56
  * @LastEditors: Anwarul
- * @LastEditTime: 2026-01-07 14:28:44
+ * @LastEditTime: 2026-01-08 14:23:02
  * @Description: Innova IT
  */
 
@@ -15,6 +15,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PermissionsController;
+use App\Http\Controllers\QuizQuestionController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
@@ -24,7 +25,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+Route::post('order_change', [QuizQuestionController::class, 'order_change'])->name('order_change');
+Route::post('import_question', [QuizQuestionController::class, 'import_question'])->name('import_question');
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {
 Route::group(['middleware' => ['auth','permission']], function() {
@@ -40,8 +42,10 @@ Route::group(['middleware' => ['auth','permission']], function() {
     Route::resource('book', BookController::class);
     Route::resource('book_file', BookFileController::class);
     Route::resource('module', ModuleController::class);
-    Route::resource('lessions', LessionController::class);
-    Route::resource('question', SettingController::class);
+    Route::resource('lessons', LessonController::class);
+    Route::resource('quiz_question', QuizQuestionController::class);
+
+
 
 });
 });

@@ -2,13 +2,13 @@
 
 namespace App\Repositories;
 
-use App\Models\Lession;
+use App\Models\QuizQuestion;
 
-class LessionRepository
+class QuizQuestionRepository
 {
     protected $model;
 
-    public function __construct(Lession $model)
+    public function __construct(QuizQuestion $model)
     {
         $this->model = $model;
     }
