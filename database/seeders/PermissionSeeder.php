@@ -117,6 +117,11 @@ class PermissionSeeder extends Seeder
             array('name' => 'quiz_question.update','guard_name' => 'web'),
             array('name' => 'quiz_question.destroy','guard_name' => 'web'),
 
+            array('name' => 'book_qr_code.index','guard_name' => 'web'),
+            array('name' => 'book_qr_code.store','guard_name' => 'web'),
+            array('name' => 'book_qr_code.print','guard_name' => 'web'),
+            array('name' => 'book_qr_code.destroy','guard_name' => 'web'),
+
         );
 
         DB::table('permissions')->insert($permissions);

@@ -13,10 +13,10 @@
                     <h5>📘 Book Details</h5>
                 </div>
                 <div class="col-md-6 text-end">
-                    <a href="{{ route('book.index') }}" class="btn btn-outline-secondary">
+                    <a href="{{ route('book.index') }}" class="btn btn-success">
                         <i class="fa fa-arrow-left"></i> Back
                     </a>
-                    <a href="{{ route('book.edit', $book->id) }}" class="btn btn-outline-info">
+                    <a href="{{ route('book.edit', $book->id) }}" class="btn btn-info">
                         <i class="fa fa-edit"></i> Edit
                     </a>
                 </div>
