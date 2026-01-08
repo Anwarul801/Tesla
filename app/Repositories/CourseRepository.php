@@ -3,7 +3,7 @@
  * @Author: Anwarul
  * @Date: 2026-01-05 15:00:04
  * @LastEditors: Anwarul
- * @LastEditTime: 2026-01-05 17:11:15
+ * @LastEditTime: 2026-01-07 12:59:52
  * @Description: Innova IT
  */
 
@@ -31,19 +31,15 @@ class CourseRepository
         return $this->model->find($id);
     }
 
-    public function create(array $data)
+    public function store(array $data): Course
     {
-        return $this->model->create($data);
+        return Course::create($data);
     }
 
-    public function update($id, array $data)
+    public function update(Course $course, array $data): Course
     {
-        $item = $this->find($id);
-        if ($item) {
-            $item->update($data);
-            return $item;
-        }
-        return null;
+        $course->update($data);
+        return $course;
     }
 
     public function delete($id)

@@ -73,8 +73,8 @@
                                 <button class="btn btn-secondary dropdown-toggle" type="button"
                                         data-bs-toggle="dropdown">Action</button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" data-bs-toggle="modal"
-                                       data-bs-target="#editModal{{ $item->id }}">Edit</a>
+                                    <a class="dropdown-item" href="{{ route('course.edit',$item->id) }}">Edit</a>
+                                    <a class="dropdown-item" href="{{ route('course.show',$item->id) }}">Modules</a>
                                     <form action="{{ route('course.destroy', $item->id) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
