@@ -3,7 +3,11 @@
  * @Author: Anwarul
  * @Date: 2025-11-17 14:53:56
  * @LastEditors: Anwarul
- * @LastEditTime: 2026-01-08 14:23:02
+<<<<<<< HEAD
+ * @LastEditTime: 2026-01-08 15:14:02
+=======
+ * @LastEditTime: 2026-01-05 17:22:19
+>>>>>>> e9636aae66c03ba99cd90ef9ac7f005894d35bf4
  * @Description: Innova IT
  */
 
@@ -44,8 +48,7 @@ Route::group(['middleware' => ['auth','permission']], function() {
     Route::resource('module', ModuleController::class);
     Route::resource('lessons', LessonController::class);
     Route::resource('quiz_question', QuizQuestionController::class);
-
-
+    Route::resource('book_qr_code', BookQrCodeController::class);
 
 });
 });
