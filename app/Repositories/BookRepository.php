@@ -9,7 +9,7 @@ class BookRepository
     public function all(array $filters)
     {
         $search = $this->data_filter($filters);
-        return Book::where($search)->latest()->paginate();
+        return Book::where($search)->latest()->paginate(10);
     }
 
 

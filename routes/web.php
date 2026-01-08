@@ -9,6 +9,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookFileController;
+use App\Http\Controllers\BookQrCodeController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -39,6 +40,7 @@ Route::group(['middleware' => ['auth','permission']], function() {
     Route::resource('course', CourseController::class);
     Route::resource('book', BookController::class);
     Route::resource('book_file', BookFileController::class);
+    Route::resource('book_qr_code', BookQrCodeController::class);
 
 });
 });
