@@ -18,7 +18,7 @@
                     <h5>{{ __('Manage Books') }}</h5>
                 </div>
                 <div class="col-md-6 text-end">
-                    <a href="{{route('book.create')}}" class="btn btn-outline-info waves-effect waves-light"
+                    <a href="{{route('book.create')}}" class="btn btn-info waves-effect waves-light"
                             >
                         <i class="fa fa-plus-circle"></i> {{ __('Add New') }}
                     </a>

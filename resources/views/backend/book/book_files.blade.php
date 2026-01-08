@@ -18,10 +18,10 @@
                     <h5>{{ __('Manage Book Files') }}</h5>
                 </div>
                 <div class="col-md-6 text-end">
-                    <a href="{{ route('book.index') }}" class="btn btn-outline-secondary">
+                    <a href="{{ route('book.index') }}" class="btn btn-success">
                         <i class="fa fa-arrow-left"></i> Back To Books
                     </a>
-                    <button type="button" class="btn btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#createModal"
+                    <button type="button" class="btn btn-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#createModal"
                             >
                         <i class="fa fa-plus-circle"></i> {{ __('Add New') }}
                     </button>

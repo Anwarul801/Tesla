@@ -79,8 +79,16 @@
                      @can(['book.index'])
                          <li>
                              <a href="{{ route('book.index') }}" class=" waves-effect">
-                                 <i class="ri-settings-2-line"></i>
+                                 <i class=" ri-book-line"></i>
                                  <span>Books</span>
+                             </a>
+                         </li>
+                     @endcan
+                     @can(['book_qr_code.index'])
+                         <li>
+                             <a href="{{ route('book_qr_code.index') }}" class=" waves-effect">
+                                 <i class=" ri-qr-code-fill"></i>
+                                 <span>Book Qr Code</span>
                              </a>
                          </li>
                      @endcan
