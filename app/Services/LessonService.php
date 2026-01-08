@@ -2,13 +2,13 @@
 
 namespace App\Services;
 
-use App\Repositories\LessionRepository;
+use App\Repositories\LessonRepository;
 
-class LessionService
+class LessonService
 {
     protected $repository;
 
-    public function __construct(LessionRepository $repository)
+    public function __construct(LessonRepository $repository)
     {
         $this->repository = $repository;
     }

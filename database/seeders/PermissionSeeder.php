@@ -3,7 +3,7 @@
  * @Author: Anwarul
  * @Date: 2026-01-05 17:21:38
  * @LastEditors: Anwarul
- * @LastEditTime: 2026-01-07 15:33:08
+ * @LastEditTime: 2026-01-08 14:05:05
  * @Description: Innova IT
  */
 
@@ -104,10 +104,18 @@ class PermissionSeeder extends Seeder
             array('name' => 'module.update','guard_name' => 'web'),
             array('name' => 'module.destroy','guard_name' => 'web'),
 
-            array('name' => 'lessions.index','guard_name' => 'web'),
-            array('name' => 'lessions.store','guard_name' => 'web'),
-            array('name' => 'lessions.update','guard_name' => 'web'),
-            array('name' => 'lessions.destroy','guard_name' => 'web'),
+            array('name' => 'lessons.index','guard_name' => 'web'),
+            array('name' => 'lessons.store','guard_name' => 'web'),
+            array('name' => 'lessons.update','guard_name' => 'web'),
+            array('name' => 'lessons.destroy','guard_name' => 'web'),
+
+            array('name' => 'quiz_question.index','guard_name' => 'web'),
+            array('name' => 'quiz_question.create','guard_name' => 'web'),
+            array('name' => 'quiz_question.store','guard_name' => 'web'),
+            array('name' => 'quiz_question.show','guard_name' => 'web'),
+            array('name' => 'quiz_question.edit','guard_name' => 'web'),
+            array('name' => 'quiz_question.update','guard_name' => 'web'),
+            array('name' => 'quiz_question.destroy','guard_name' => 'web'),
 
         );
 
