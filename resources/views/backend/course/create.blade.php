@@ -3,7 +3,7 @@
  @Author: Anwarul
  @Date: 2026-01-05 16:57:54
  @LastEditors: Anwarul
- @LastEditTime: 2026-01-07 14:15:30
+ @LastEditTime: 2026-01-08 15:33:04
  @Description: Innova IT
 --}}
 
@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-6 text-end">
                 <a href="{{ route('course.index') }}"
-                   class="btn btn-outline-info waves-effect waves-light">
+                   class="btn btn-success waves-effect waves-light">
                     <i class="fa fa-list"></i> {{ __('Course List') }}
                 </a>
             </div>
@@ -59,7 +59,7 @@
                     <label class="form-label mb-0">Book</label>
                 </div>
                 <div class="col-md-9">
-                    <select name="book_id" class="form-select">
+                    <select name="book_id" class="form-control">
                         <option value="">-- Select Book --</option>
                         @foreach($books as $book)
                             <option value="{{ $book->id }}"
@@ -103,7 +103,7 @@
                     <label class="form-label mb-0">Status</label>
                 </div>
                 <div class="col-md-9">
-                    <select name="status" class="form-select">
+                    <select name="status" class="form-control">
                         <option value="Active"
                             {{ old('status', $course->status ?? 'Active') == 'Active' ? 'selected' : '' }}>
                             Active

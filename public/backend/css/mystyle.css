@@ -171,7 +171,10 @@ tbody, td, tfoot, th, thead, tr {
 	align-items: center;
 }
 .form-control2{
-	border: 1px solid #c7c2c2!important;
+	border: 1px solid #a1a2a5!important;
+}
+.form-control{
+	border: 1px solid #a1a2a5!important;
 }
 
 
@@ -354,7 +357,7 @@ tbody, td, tfoot, th, thead, tr {
 	border: 1px solid #c6c6c6;
 }
 .form-control.form-control-sm {
-	border: 1px solid #b5acac;
+	border: 1px solid #a1a2a5;
 }
 
 .progress {
@@ -646,11 +649,11 @@ tbody, td, tfoot, th, thead, tr {
 .dropdown{
 	position: relative;
 	display: inline-block;
-} 
+}
 .dropdown-menu.show {
 	position: absolute !important;
     top: 100% !important;
-    right: 0px !important; 
+    right: 0px !important;
 	inset: auto 0px auto auto !important;
 }
 

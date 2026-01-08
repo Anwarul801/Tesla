@@ -10,7 +10,7 @@
                     <h5>{{ __('Manage Course') }}</h5>
                 </div>
                 <div class="col-md-6 text-end">
-                    <a type="button" href="{{ route('course.create') }}" class="btn btn-outline-info waves-effect waves-light">
+                    <a type="button" href="{{ route('course.create') }}" class="btn btn-success waves-effect waves-light">
                         <i class="fa fa-plus-circle"></i> {{ __('Add New') }}
                 </a>
                 </div>
