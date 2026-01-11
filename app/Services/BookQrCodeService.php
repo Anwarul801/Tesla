@@ -18,6 +18,10 @@ class BookQrCodeService
     {
         return $this->repo->all($filters);
     }
+    public function getQrs(array $filters)
+    {
+        return $this->repo->getQrs($filters);
+    }
 
     public function create(array $data)
     {
