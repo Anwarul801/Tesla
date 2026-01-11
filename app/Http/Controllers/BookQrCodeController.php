@@ -34,7 +34,7 @@ class BookQrCodeController extends Controller
     public function print_book_qr_codes(Request $request)
     {
         $filters = $request->only(['book_id','name','id', 'status']);
-        $data['qrs'] = $this->BookQrCodeService->list($filters);
+        $data['qrs'] = $this->BookQrCodeService->getQrs($filters);
         return view('backend.book.print_book_qr_codes', $data);
     }
     /**

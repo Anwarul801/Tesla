@@ -135,6 +135,7 @@
                 @endforelse
                 </tbody>
             </table>
+            {{ $book_qr_codes->appends(request()->input())->links() }}
         </div>
     </div>
 

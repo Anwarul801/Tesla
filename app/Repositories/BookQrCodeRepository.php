@@ -11,6 +11,11 @@ class BookQrCodeRepository
         $search = $this->data_filter($filters);
         return BookQrCode::where($search)->latest()->paginate(100);
     }
+    public function getQrs(array $filters)
+    {
+        $search = $this->data_filter($filters);
+        return BookQrCode::where($search)->latest()->get();
+    }
 
     public function data_filter($filters)
     {
